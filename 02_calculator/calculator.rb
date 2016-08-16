@@ -13,3 +13,7 @@ def sum(array)
   end
   return total
 end
+
+def product(x,y)
+  x * y
+end
