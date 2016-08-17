@@ -4,15 +4,19 @@ def translate(message)
   words = message.split
 
   vowels = ["a","e","i","o","u","y"]
+  prefix =
+  root =
+  suffix =
 
   words.each do |word|
     # checks if first letter is in vowels
     if vowels.include?(word[0])
-      word << "ay"
-      puts "VOWEL!"
+      puts word << "ay"
     else
+      # for words that start with qu
       if word[0..1] == "qu"
-        puts "SPECIAL"
+        root = word.delete "#{word[0..1]}"
+        puts root << "quay"
       else
         puts "CONSONANT!"
       end
@@ -22,9 +26,11 @@ end
 
 #testing
 translate("apple")
-translate("banana")
-translate("cherry")
-translate("eat pie")
-translate("three")
-translate("school")
-translate("queen")
+# translate("banana")
+# translate("cherry")
+# translate("eat pie")
+# translate("three")
+# translate("school")
+translate("quiet")
+# translate("square")
+translate("the quick brown fox")
