@@ -3,21 +3,28 @@ def translate(message)
   # words is an arraym
   words = message.split
 
+  vowels = ["a","e","i","o","u","y"]
+
   words.each do |word|
-    # differentiate if word starts with vowels
-    if word[0] == "a" || word[0] == "e" || word[0] == "i" || word[0] == "o" || word[0] == "u"
-      puts "starts with vowel"
+    # checks if first letter is in vowels
+    if vowels.include?(word[0])
+      word << "ay"
+      puts "VOWEL!"
     else
-      puts "starts with consonant"
+      if word[0..1] == "qu"
+        puts "SPECIAL"
+      else
+        puts "CONSONANT!"
+      end
     end
   end
-
 end
 
 #testing
-translate("apples")
-translate("bananas")
-translate("eggs")
-translate("icecream")
-translate("oranges")
-translate("umbrella rain")
+translate("apple")
+translate("banana")
+translate("cherry")
+translate("eat pie")
+translate("three")
+translate("school")
+translate("queen")
