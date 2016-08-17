@@ -1,20 +1,20 @@
 def translate(message)
 
-  # words is an arraym
+  # words is an array
   words = message.split
 
-  vowels = ["a","e","i","o","u","y"]
-  suffix =
+  vowels = ["a","e","i","o","y"]
 
+  # iterate through each array and change each word
   words.each do |word|
     # checks if first letter is in vowels
-    if vowels.include?(word[0])
-      puts word << "ay"
+    if vowels.include?(word[0]) || word[0] == "u"
+      word << "ay"
     else
       # for words that start with "qu"
       if word[0..1] == "qu"
-        root = word.delete "#{word[0..1]}"
-        puts root << "quay"
+        root = word.delete! "#{word[0..1]}"
+        root << "quay"
 
       # for words that start with consonant and not "qu"
       else
@@ -26,20 +26,11 @@ def translate(message)
             suffix << word[x]
             x += 1
           end
-          root = word.delete "#{word[0..x-1]}"
-          puts root << suffix << "ay"
+          root = word.delete! "#{word[0..x-1]}"
+          root << suffix << "ay"
       end
     end
   end
-end
 
-#testing
-translate("apple")
-translate("banana")
-translate("cherry")
-translate("eat pie")
-translate("three")
-translate("school")
-translate("quiet")
-translate("square")
-translate("the quick brown fox")
+  words.join(" ")
+end
