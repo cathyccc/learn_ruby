@@ -1,4 +1,5 @@
 class Temperature
+
   def initialize(hash)
     @hash = hash
   end
@@ -21,21 +22,33 @@ class Temperature
     return celsius
   end
 
-  # assert_equal 50, Temperature.in_celsius(50).to_celsius
-  # assert_equal 122, Temperature.in_celsius(50).to_fahrenheit
-
   def self.in_celsius(temperature)
-    temperature
+    new_temperature = Temperature.new(:c => temperature)
   end
 
   def self.in_fahrenheit(temperature)
-    temperature
+    new_temperature = Temperature.new(:f => temperature)
   end
 
 end
 
 class Fahrenheit < Temperature
+
+  def initialize(temperature)
+    @temperature = temperature
+  end
+
+  def self.new(temperature)
+    Temperature.new(:f => temperature)
+  end
 end
 
 class Celsius < Temperature
+    def initialize(temperature)
+      @temperature = temperature
+    end
+
+    def self.new(temperature)
+      Temperature.new(:c => temperature)
+    end
 end
